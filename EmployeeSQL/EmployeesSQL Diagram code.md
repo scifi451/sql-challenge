@@ -1,9 +1,8 @@
 # EmployeesSQL DB schema diagram.
 
-
 Dept_manager as DM
 -
-dept_no int FK -< D.dept_no
+dept_no varchar(7) FK -< D.dept_no
 emp_no int FK -< E.emp_no
 from_date date
 to_date date
@@ -17,7 +16,7 @@ to_date date
 
 Departments as  D
 -
-dept_no int pk
+dept_no varchar(7) pk
 dept_name varchar(50)
 
 Titles as T
@@ -39,6 +38,6 @@ hire_date date
 Dept_emp as DE
 -
 emp_no int FK -< E.emp_no
-dept_no int FK -< D.dept_no
+dept_no varchar(7) FK -< D.dept_no
 from_date date
 to_date date
