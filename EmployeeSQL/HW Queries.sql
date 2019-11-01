@@ -35,3 +35,48 @@ FROM
 	"Departments"
 JOIN "Dept_manager" ON "Dept_manager".dept_no = "Departments".dept_no
 JOIN "Employees" ON "Dept_manager".emp_no = "Employees".emp_no;
+
+-- List the department of each employee with the following information: employee number, last name, first name, and department name.
+
+SELECT
+	"Dept_manager".emp_no,
+	"Employees".first_name,
+	"Employees".last_name,
+	"Departments".dept_name
+FROM
+	"Departments"
+JOIN "Dept_manager" ON "Dept_manager".dept_no = "Departments".dept_no
+JOIN "Employees" ON "Dept_manager".emp_no = "Employees".emp_no;
+
+--List all employees whose first name is "Hercules" and last names begin with "B."
+
+Select * from "Employees"
+Where 
+first_name = 'Hercules'
+AND last_name like 'B%';
+
+-- List all employees in the Sales department, including their employee number, last name, first name, and department name.
+SELECT
+	"Dept_emp".emp_no,
+	"Employees".first_name,
+	"Employees".last_name,
+	"Departments".dept_name
+FROM
+	"Departments"
+JOIN "Dept_emp" ON "Dept_emp".dept_no = "Departments".dept_no
+JOIN "Employees" ON "Dept_emp".emp_no = "Employees".emp_no
+Where "Departments".dept_no = 'd007';
+
+-- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT
+	"Dept_emp".emp_no,
+	"Employees".first_name,
+	"Employees".last_name,
+	"Departments".dept_name
+FROM
+	"Departments"
+JOIN "Dept_emp" ON "Dept_emp".dept_no = "Departments".dept_no
+JOIN "Employees" ON "Dept_emp".emp_no = "Employees".emp_no
+Where "Departments".dept_no = 'd007' OR 
+"Departments".dept_no = 'd005'
+;
