@@ -78,5 +78,10 @@ FROM
 JOIN "Dept_emp" ON "Dept_emp".dept_no = "Departments".dept_no
 JOIN "Employees" ON "Dept_emp".emp_no = "Employees".emp_no
 Where "Departments".dept_no = 'd007' OR 
-"Departments".dept_no = 'd005'
-;
+"Departments".dept_no = 'd005';
+
+-- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+Select last_name, count(last_name) 
+FROM "Employees"
+Group by "Employees".last_name
+Order by count(last_name) DESC;
